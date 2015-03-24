@@ -14,7 +14,7 @@ def processRequest(request, resource):
             return HttpResponse(entry.page)
         except Pages.DoesNotExist:
             return HttpResponseNotFound("Not found entry!")
-    elif request.method == "POST":
+    elif request.method == "PUT":
         entryNew = Pages(name=resource, page=request.body)
         entryNew.save()
         return HttpResponse("Ok !")
